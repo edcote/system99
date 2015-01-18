@@ -1,0 +1,47 @@
+.align 4
+.set noat
+.set noreorder
+
+.text
+
+entry:
+/* NODE 0 */
+.org    0x000
+    /* remote read */
+    li      $a0, 0x10000000
+    lw      $t0, 0($a0)
+    nop
+
+    /* wait for remote invalidate */
+    li      $a0, 0x20
+    jal     delay
+    nop
+
+    /* late replacement */
+    li      $a0, 0x00000000
+    lw      $t0, 0($a0)
+    nop
+
+    break
+
+/* NODE 1 */
+.org    0x100
+    li      $a0, 0x10
+    jal     delay
+    nop
+
+    li      $t0, 0x1234abcd
+    li      $a0, 0x10000000
+    sw      $t0, 0($a0)
+    nop
+
+    break
+    
+/* END */
+delay:
+    bne     $a0, $zero, delay
+    addi    $a0, $a0, -1
+    jr      $ra
+    nop
+
+.org    0x200

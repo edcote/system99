@@ -1,0 +1,77 @@
+
+flash:     file format elf32-tradbigmips
+
+Disassembly of section .text:
+
+09000000 <main>:
+ 9000000:	27bdfff0 	addiu	sp,sp,-16
+ 9000004:	afbe0008 	sw	s8,8(sp)
+ 9000008:	03a0f021 	move	s8,sp
+ 900000c:	afc00004 	sw	zero,4(s8)
+ 9000010:	afc00000 	sw	zero,0(s8)
+ 9000014:	8fc20000 	lw	v0,0(s8)
+ 9000018:	2842000a 	slti	v0,v0,10
+ 900001c:	1040000f 	beqz	v0,900005c <main+0x5c>
+ 9000020:	00000000 	nop
+ 9000024:	3c040900 	lui	a0,0x900
+ 9000028:	8fc20000 	lw	v0,0(s8)
+ 900002c:	00021880 	sll	v1,v0,0x2
+ 9000030:	24820070 	addiu	v0,a0,112
+ 9000034:	00621021 	addu	v0,v1,v0
+ 9000038:	8fc30004 	lw	v1,4(s8)
+ 900003c:	8c420000 	lw	v0,0(v0)
+ 9000040:	00621021 	addu	v0,v1,v0
+ 9000044:	afc20004 	sw	v0,4(s8)
+ 9000048:	8fc20000 	lw	v0,0(s8)
+ 900004c:	24420001 	addiu	v0,v0,1
+ 9000050:	afc20000 	sw	v0,0(s8)
+ 9000054:	1000ffef 	b	9000014 <main+0x14>
+ 9000058:	00000000 	nop
+ 900005c:	03c0e821 	move	sp,s8
+ 9000060:	8fbe0008 	lw	s8,8(sp)
+ 9000064:	27bd0010 	addiu	sp,sp,16
+ 9000068:	03e00008 	jr	ra
+ 900006c:	00000000 	nop
+Disassembly of section .rodata:
+
+09000070 <array>:
+ 9000070:	00000000 	nop
+ 9000074:	00000001 	movf	zero,zero,$fcc0
+ 9000078:	00000002 	srl	zero,zero,0x0
+ 900007c:	00000003 	sra	zero,zero,0x0
+ 9000080:	00000004 	sllv	zero,zero,zero
+ 9000084:	00000005 	0x5
+ 9000088:	00000006 	srlv	zero,zero,zero
+ 900008c:	00000007 	srav	zero,zero,zero
+ 9000090:	00000008 	jr	zero
+ 9000094:	00000009 	jalr	zero,zero
+Disassembly of section .reginfo:
+
+00000000 <.reginfo>:
+   0:	e000001c 	sc	zero,28(zero)
+	...
+Disassembly of section .pdr:
+
+00000000 <.pdr>:
+   0:	09000000 	j	4000000 <_data+0x4000000>
+   4:	40000000 	mfc0	zero,c0_index
+   8:	fffffff8 	sdc3	$31,-8(ra)
+	...
+  14:	00000010 	mfhi	zero
+  18:	0000001e 	0x1e
+  1c:	0000001f 	0x1f
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	00474343 	0x474343
+   4:	3a202847 	xori	zero,s1,0x2847
+   8:	4e552920 	c3	0x552920
+   c:	332e342e 	andi	t6,t9,0x342e
+  10:	34206d69 	ori	zero,at,0x6d69
+  14:	70737364 	0x70737364
+  18:	652d362e 	0x652d362e
+  1c:	30352e30 	andi	s5,at,0x2e30
+  20:	302d3230 	andi	t5,at,0x3230
+  24:	30363130 	andi	s6,at,0x3130
+  28:	Address 0x28 is out of bounds.
+

@@ -1,0 +1,26 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x0000000008000000 0x0000000000001000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+
+.text           0x0000000008000000      0x200
+                0x0000000008000000                . = ALIGN (0x4)
+ *(.text)
+ .text          0x0000000008000000      0x200 rom.o
+                0x0000000008000200                _text_end = .
+
+.data           0x0000000000000000        0x0
+
+.bss            0x0000000000000000        0x0
+LOAD rom.o
+OUTPUT(rom elf32-tradbigmips)
+
+.reginfo        0x0000000000000000       0x18
+ .reginfo       0x0000000000000000       0x18 rom.o
+
+.pdr            0x0000000000000000        0x0

@@ -1,0 +1,26 @@
+
+rom:     file format elf32-tradbigmips
+
+Disassembly of section .text:
+
+08000000 <entry>:
+ 8000000:	00000000 	nop
+ 8000004:	0000000d 	break
+	...
+
+08000100 <node_1_entry>:
+ 8000100:	3c081234 	lui	t0,0x1234
+ 8000104:	3508abcd 	ori	t0,t0,0xabcd
+ 8000108:	3c041000 	lui	a0,0x1000
+ 800010c:	8c880000 	lw	t0,0(a0)
+ 8000110:	00000000 	nop
+ 8000114:	ac880000 	sw	t0,0(a0)
+ 8000118:	00000000 	nop
+ 800011c:	0000000d 	break
+
+08000120 <delay>:
+ 8000120:	1480ffff 	bnez	a0,8000120 <delay>
+ 8000124:	2084ffff 	addi	a0,a0,-1
+ 8000128:	03e00008 	jr	ra
+ 800012c:	00000000 	nop
+	...
